@@ -11,7 +11,7 @@ Não exiba o contexto se ele for desnecessário para a resposta.
 Não responda sempre relembrando que 'Com base no contexto fornecido'.
 
 --- Informações ---
-Data e hora atual: {data_hora}
+Data e hora atual: {data_hora} | hora: HH:MM:SS | data: DD-MM-YYYY
 
 --- Fim das informações ---
 
@@ -26,8 +26,8 @@ Pergunta atual:
 Resposta:
 """
 
-# Modelo de IA usado | llama3.1:8b | llama3.2:3b | deepseek-r1:8b
-IA_MODEL = "llama3.1:8b"
+# Modelo de IA usado | llama3.1:8b | llama3.2:3b // deepseek-r1:1.5b | deepseek-r1:8b // Recomendo usar o deepseek
+IA_MODEL = "deepseek-r1:8b"
 
 # Configuração do modelo e template
 model = OllamaLLM(model=IA_MODEL)
@@ -81,7 +81,7 @@ def obter_data_hora():
 def manter_conversa():
     """Função principal para manter a conversa."""
     context = carregar_historico()  # Carrega o histórico existente, se disponível
-    print(f"Seja bem-vindo ao Ollama IA (Modelo: {IA_MODEL})")
+    print(f"Seja bem-vindo ao ICEBERG IA (Modelo: {IA_MODEL})")
     print("Digite 'sair' para encerrar o chatbot.\n")
 
     while True:
