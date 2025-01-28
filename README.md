@@ -2,7 +2,7 @@
 **ICEBERG IA** é um chatbot interativo baseado em **modelos de IA avançados** e executado na **Ollama**, utilizando o modelo **DeepSeek-R1:8b** para processamento eficiente e inteligente de linguagem natural.
 
 🚀 **Destaques do projeto:**
-- Modelo de IA **DeepSeek-R1:8b**, altamente otimizado para desempenho superior em **razonamento, código e matemática**.
+- Modelo de IA **DeepSeek-R1:8b**, altamente otimizado para desempenho superior em **raciocínio, código e matemática**.
 - Persistência de **histórico de conversa** entre interações.
 - Suporte para **comandos interativos** no terminal.
 - Interface otimizada para **uso eficiente de memória e processamento**.
