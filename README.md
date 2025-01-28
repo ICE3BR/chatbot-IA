@@ -15,7 +15,8 @@ Antes de iniciar, certifique-se de ter os seguintes requisitos instalados:
 
 - **Python** (>= 3.8)
 - **Ollama** ([instalar aqui](https://ollama.ai/))
-- **Dependências Python** (listadas abaixo)
+- **Gerenciador de dependências**: [UV](https://docs.astral.sh/uv/)
+- **Dependências Python** (listadas no `pyproject.toml`)
 
 ### 2️⃣ **Baixar e instalar dependências**
 Clone o repositório e instale as dependências:
@@ -27,7 +28,6 @@ uv sync
 ```
 
 > ⚠️ **Nota:** Se estiver utilizando **WSL2** ou **Ubuntu**, garanta que a **Ollama** esteja configurada corretamente.
-> Necessário instalar o gerenciador de dependencias [UV](https://docs.astral.sh/uv/)
 
 ---
 
@@ -41,10 +41,34 @@ python main.py
 🔹 O terminal exibirá a mensagem de boas-vindas:  
 ```bash
 Seja bem-vindo ao ICEBERG IA (Modelo: deepseek-r1:8b)
-Digite 'sair' para encerrar o chatbot.
+Digite 'sair' para encerrar e salvar o histórico do o chatbot.
 ```
 
 🔹 Agora, você pode interagir digitando suas perguntas e recebendo respostas contextuais.
+
+---
+
+## 🖥️ **Requisitos de Hardware**
+O desempenho do **ICEBERG IA** varia de acordo com o modelo escolhido. Modelos maiores exigem mais memória e processamento para rodar de forma eficiente.
+
+### 🔹 **Como escolher um modelo compatível com seu hardware?**
+Cada modelo de IA possui um **tamanho de memória necessário** para ser carregado e processado corretamente. Como regra geral:
+
+- **O tamanho do modelo indica a memória mínima necessária** para carregá-lo na GPU ou na RAM.
+- **Se sua GPU não tiver VRAM suficiente, o processamento será feito na CPU**, o que pode resultar em respostas mais lentas.
+
+| Modelo             | Parâmetros | Tamanho do Arquivo | Requisitos de Memória |
+|--------------------|-----------|--------------------|----------------------|
+| **DeepSeek-R1**    | 1.5B      | 2.7GB              | **3GB RAM/VRAM** |
+| **DeepSeek-R1**    | 8B        | 4.9GB              | **5GB RAM/VRAM** |
+| **DeepSeek-R1**    | 14B       | 7.5GB              | **8GB RAM/VRAM** |
+| **DeepSeek-R1**    | 32B       | 16GB               | **16GB RAM/VRAM** |
+
+💡 **Dica:**  
+Se sua máquina **não possui GPU suficiente**, o modelo pode rodar via CPU, mas **o tempo de resposta será maior**.  
+Se deseja **respostas mais rápidas**, recomenda-se **executar o chatbot em uma GPU com VRAM suficiente** para o modelo escolhido.
+
+> **Exemplo:** Se você escolher o **DeepSeek-R1:8B**, que possui **4.9GB de tamanho**, sua GPU precisa de **pelo menos 5GB de VRAM disponível** para carregá-lo eficientemente.
 
 ---
 
@@ -59,6 +83,9 @@ O **ICEBERG IA** suporta múltiplos modelos na **Ollama**. Atualmente, recomenda
 | **Llama 3.2**      | 3B        | 3.5GB    | `ollama run llama3.2:3b`             |
 
 > 💡 **Recomendação:** O **DeepSeek-R1:8B** é um modelo **mais eficiente e rápido**, consumindo **menos recursos** e entregando um desempenho comparável ao **GPT-O1**.
+
+### 🔹 **O que são os parâmetros?**
+Os parâmetros de um modelo representam os pesos treináveis, indicando sua capacidade de raciocínio. Quanto maior o número de parâmetros, mais detalhadas e precisas são as respostas, mas também maior é o uso de memória e processamento. Modelos menores são mais leves, enquanto os maiores oferecem maior desempenho em tarefas complexas. 
 
 ---
 
@@ -98,4 +125,4 @@ MAX_INTERACOES = 100  # Define um novo limite
 Este projeto é distribuído sob a **MIT License**. O modelo **DeepSeek-R1** também é licenciado sob **MIT**, permitindo uso comercial e modificações.
 
 🔗 **Mais informações sobre DeepSeek-R1:**  
-[DeepSeek R1 no Ollama](https://ollama.ai/library/deepseek-r1)  
+[DeepSeek R1 no Ollama](https://ollama.ai/library/deepseek-r1)
