@@ -7,24 +7,19 @@ from langchain_ollama import OllamaLLM
 
 # Define o template de prompt para o chatbot, que inclui informações de data/hora e histórico de conversa.
 template = """
-Você é ICEBERG IA, um chatbot útil. Use o contexto fornecido para responder à pergunta do usuário de maneira clara e concisa.
-Não exiba o contexto se ele for desnecessário para a resposta.
-Não responda sempre relembrando que 'Com base no contexto fornecido'.
-
---- Informações ---
-Data e hora atual: {data_hora} | hora: HH:MM:SS | data: DD-MM-YYYY
-
+Você é ICEBERG IA, um chatbot útil. Responda à pergunta do usuário de maneira clara, lógica, concisa e objetiva, levando em consideração o contexto da conversa.
+--- Informações gerais ---
+Data e hora atual: {data_hora}
 --- Fim das informações ---
 
 --- Histórico da conversa ---
-Histórico da conversa:
 {context}
 --- Fim do histórico ---
 
-Pergunta atual:
-{question}
+Pergunta do usuário:
+<｜User｜>{question}
 
-Resposta:
+<｜Assistant｜> Resposta:
 """
 
 # Define o modelo de IA a ser usado.
